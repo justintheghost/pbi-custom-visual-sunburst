@@ -1,0 +1,154 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Child",
+      "description": "Unique identifier of the child entity in the hierarchy",
+      "kind": "Grouping",
+      "name": "Child"
+    }, 
+    {
+      "displayName": "Parent",
+      "description": "Unique identifier of the parent entity in the hierarchy",
+      "kind": "Grouping",
+      "name": "Parent"
+    },
+    {
+      "displayName": "Label",
+      "description": "Field to label each entity in the hierarchy",
+      "kind": "Grouping",
+      "name": "Label"
+    }, 
+    {
+      "displayName": "Values",
+      "description": "Determines the color of the entity",
+      "kind": "Measure",
+      "name": "Values"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+            "Child": {
+                "max": 1
+            },
+            "Parent": {
+                "max": 1
+            },
+            "Label": {
+                "max": 1
+            },
+            "Values": {
+                "max": 1
+            }
+        }
+    ], 
+    "scriptResult": {
+        "dataInput": {
+          "table": {
+            "rows": {
+              "select": [
+                {
+                  "for": {
+                    "in": "Child"
+                  }
+                }, 
+                {
+                  "for": {
+                    "in": "Parent"
+                  }
+                },
+                {
+                  "for": {
+                    "in": "Label"
+                  }
+                },
+                {
+                  "for": {
+                    "in": "Values"
+                  }
+                }
+              ],
+              "dataReductionAlgorithm": {
+                "top": {}
+              }
+            }
+          }
+        },
+        "script": {
+          "scriptProviderDefault": "R",
+          "scriptOutputType": "html",
+          "source": {
+            "objectName": "rcv_script",
+            "propertyName": "source"
+          },
+          "provider": {
+            "objectName": "rcv_script",
+            "propertyName": "provider"
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "sunburst": {
+      "displayName": "Sunburst Settings",
+      "properties": {
+          "maxDepth": {
+              "displayName": "Max Depth",
+              "description": "Select the number of hierarchy levels to display.",
+              "type": {
+                  "numeric": true
+              }
+          },"colorValue1": {
+            "displayName": "Value 1 Color",
+            "description": "Color of nodes where value is 1.",
+            "type": {
+                "fill": {
+                    "solid": {
+                        "color": true
+                    }
+                }
+            }
+        },"colorValue2": {
+          "displayName": "Value 2 Color",
+          "description": "Color of nodes where value is 2.",
+          "type": {
+              "fill": {
+                  "solid": {
+                      "color": true
+                  }
+              }
+          }
+      },"colorValue3": {
+        "displayName": "Value 3 Color",
+        "description": "Color of nodes where value is 3.",
+        "type": {
+            "fill": {
+                "solid": {
+                    "color": true
+                }
+            }
+        }
+    }
+      }
+    },
+    "rcv_script": {
+      "properties": {
+        "provider": {
+          "type": {
+            "text": true
+          }
+        },
+        "source": {
+          "type": {
+            "scripting": {
+              "source": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "suppressDefaultTitle": true
+}

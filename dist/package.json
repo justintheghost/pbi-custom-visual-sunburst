@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "author": {"name":"Justin Kolpak","email":"jkolpak@wmp.com"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/demoSunburst4BB94EA0EE28445F8BE8DD3925E23D23.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"demoSunburst","displayName":"Custom Sunburst","guid":"demoSunburst4BB94EA0EE28445F8BE8DD3925E23D23","visualClassName":"Visual","version":"1.0.0","description":"Getting started with Power BI custom visuals.","supportUrl":"www.justinkolpak.com","gitHubUrl":""},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}
